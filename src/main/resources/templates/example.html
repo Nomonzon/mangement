@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Home</a>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/laptop}">Laptops</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/laptop}">Printers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/laptop}">Monitors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/laptop}">Routers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  th:href="@{/laptop}">Other</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<br>
+<br>
+<div class="container">
+<table class="table table table-bordered">
+    <thead class="">
+    <tr>
+        <th> Model</th>
+        <th> Processor</th>
+        <th> Price</th>
+        <th> RAM</th>
+        <th> Screen Size</th>
+        <th> Storage</th>
+        <th> BatteryModel</th>
+        <th> Battery</th>
+        <th> Amount </th>
+    <tr>
+    </thead>
+    <tbody>
+        <tr>
+            <form th:action="@{/laptop}" th:object = "${laptops}" method="POST">
+            <td>
+                <div class="form-group row-4">
+                    <label>
+                        <input
+                                type="text"
+                                name="model"
+                                th:field="*{model}"
+                                class="form-control"
+                                placeholder="Acer">
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group row-4">
+                    <label>
+                        <input
+                                type="text"
+                                name="processor"
+                                th:field="*{processor}"
+                                class="form-control"
+                                placeholder="core-i7">
+                    </label>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                    <span class="input-group-text">$</span>
+                    <input
+                            type="text"
+                            name="price"
+                            th:field="*{price}"
+                            class="form-control"
+                            aria-label="Amount (to the nearest dollar)"
+                            placeholder="250$">
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="RAM"
+                            th:field="*{RAM}"
+                            class="form-control"
+                            placeholder="RAM">
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="screenSize"
+                            th:field="*{screenSize}"
+                            class="form-control"
+                            placeholder="Diagonal">
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="storage"
+                            th:field="*{storage}"
+                            class="form-control"
+                            placeholder="Size">
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="battery"
+                            th:field="*{modelBattery}"
+                            class="form-control"
+                            placeholder="model">
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="battery"
+                            th:field="*{battery}"
+                            class="form-control"
+                            placeholder="mAh">
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <input
+                            type="text"
+                            name="amount"
+                            th:field="*{number}"
+                            class="form-control"
+                            placeholder="Amount">
+                </div>
+            </td>
+
+                <div class="footer-body">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+</body>
+</html>

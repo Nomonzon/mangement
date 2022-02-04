@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Home</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Laptops</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Printers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Monitors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Routers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="col-lr-6 col-md-6 col-sm-6 container justify-content-center card">
+    <h1 class="text-center">About Laptop</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                MODEL:
+            </div>
+            <div class="col-sm-6 float-right">
+                <span th:text="${laptopById.model.toUpperCase()}"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                OPERATING SYSTEM:
+            </div>
+            <div class="col-sm-6 float-left">
+                WINDOWS 11 HOME
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                PROCESSOR:
+            </div>
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.processor.toUpperCase()}"> </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                DIAGONAL:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.screenSize.toUpperCase()+' SIZE'}"> </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                BATTERY MODEL:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.modelBattery+''}"> </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                BATTERY LIFE:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.battery+' mAh'}"> </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                RAM:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.RAM + ' GB'}"> </span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                STORAGE:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.storage + ' GB'}"> </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 float-md-left">
+                PRICE:
+            </div>
+
+            <div class="col-sm-6 float-left">
+                <span th:text="${laptopById.price + ' $'}"> </span>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

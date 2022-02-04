@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Home</a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Laptops</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Printers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Monitors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}">Routers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  th:href="@{/laptop}"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>Laptops</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/laptop/new}" class="btn btn-primary btn-sm mb-3">
+                Add Laptop
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Model </th>
+            <th> RAM </th>
+            <th> Storage </th>
+            <th> Price </th>
+            <th> Amount </th>
+            <th> Add</th>
+            <th> Actions </th>
+        <tr>
+        </thead>
+        <tbody>
+        <tr th:each="laptop: ${laptopsList}">
+           <td th:text="${laptop.model}"></td>
+           <td th:text="${laptop.RAM + ' GB'}"></td>
+           <td th:text="${laptop.storage}"></td>
+           <td th:text="${laptop.price + '$'}"></td>
+           <td th:text="${laptop.number}"></td>
+
+            <td style="width: 20%">
+               <form th:action="@{/laptop/add/{id}(id=${laptop.id})}" th:object = "${adding}" method="POST">
+                   <div class="input-group mb-3">
+                   <input
+                       type="text"
+                       name="model"
+                       th:field="*{amountLaptop}"
+                       class="form-control"
+                       placeholder="Acer"
+                   >
+                       <div class="input-group-append">
+                   <button class="btn btn-primary">Add</button>
+                       </div>
+                   </div>
+               </form>
+            </td>
+           <td>
+                <a th:href="@{/laptop/sale/{id}(id=${laptop.id})}"
+                    class="btn btn-success">Sale</a>
+                <a th:href="@{/laptop/edit/{id}(id=${laptop.id})}"
+                   class="btn btn-primary">Update</a>
+                <a th:href="@{/delete/{id}(id=${laptop.id})}"
+                   class="btn btn-danger">Delete</a>
+                <a th:href="@{/info/{id}(id=${laptop.id})}"
+                   class="btn btn-warning">Info</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a class="btn btn-primary">Print List</a>
+</div>
+</body>
+</html>
